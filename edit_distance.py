@@ -25,4 +25,4 @@ def edit_distance(first_string, second_string):
 
 if __name__ == "__main__":
     first_string, second_string = "edit", "reddit"
-    print(f"first string: {first_string}\nsecond string: {second_string}\nedit distance: {edit_distance('edit', 'reddit')}")
+    print(f"first string: {first_string}\nsecond string: {second_string}\nedit distance: {edit_distance(first_string, second_string)}")
