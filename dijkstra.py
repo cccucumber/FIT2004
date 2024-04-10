@@ -16,11 +16,11 @@ class DijkstraMatrix:
         for node in range(self.num_vertices):
             print(f"{node}\t{distance[node]}")
 
-    def min_distance(self, distance, included):
+    def min_distance(self, distance, visited):
         minimum = sys.maxsize
 
         for u in range(self.num_vertices):
-            if distance[u] < minimum and not included[u]:
+            if distance[u] < minimum and not visited[u]:
                 minimum = distance[u]
                 min_index = u
 
@@ -29,14 +29,14 @@ class DijkstraMatrix:
     def shortest_path(self, src):
         distance = [sys.maxsize] * self.num_vertices
         distance[src] = 0
-        included = [False] * self.num_vertices
+        visited = [False] * self.num_vertices
 
         for _ in range(self.num_vertices):
-            x = self.min_distance(distance, included)
-            included[x] = True
+            x = self.min_distance(distance, visited)
+            visited[x] = True
 
             for y in range(self.num_vertices):
-                if self.graph[x][y] > 0 and not included[y] and distance[y] > distance[x] + self.graph[x][y]:
+                if self.graph[x][y] > 0 and not visited[y] and distance[y] > distance[x] + self.graph[x][y]:
                     distance[y] = distance[x] + self.graph[x][y]
 
         self.output(distance)
