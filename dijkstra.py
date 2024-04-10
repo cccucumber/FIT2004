@@ -6,7 +6,7 @@ import heapq
 # Dijkstra's Algorithm using Adjacency Matrix
 # Time Complexity: O(V^2)
 # Auxiliary Space: O(V)
-class DijkstraMatrix():
+class DijkstraMatrix:
     def __init__(self, num_vertices):
         self.num_vertices = num_vertices
         self.graph = [[0 for column in range(self.num_vertices)] for row in range(self.num_vertices)]
